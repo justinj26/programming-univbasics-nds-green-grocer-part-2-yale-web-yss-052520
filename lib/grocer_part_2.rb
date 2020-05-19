@@ -58,7 +58,7 @@ def checkout(cart, coupons)
   clearanced = apply_clearance(couponed)
   totaled = clearanced.reduce(0) do |total, item|
     item_cost = item[:price] * item[:count]
-    total = toal + item_cost
+    total = total + item_cost
     total 
   end
   if totaled > 100
