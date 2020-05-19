@@ -54,8 +54,8 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   consolidated = consolidate_cart(cart)
-  #couponed = apply_coupons(consolidated, coupons)
-  #clearanced = apply_clearance(couponed)
+  couponed = apply_coupons(consolidated, coupons)
+  clearanced = apply_clearance(couponed)
   totaled = clearanced.reduce(0) do |total, item|
     item_cost = item[:price] * item[:count]
     total = toal + item_cost
