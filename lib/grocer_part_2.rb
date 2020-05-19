@@ -53,7 +53,16 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  
-  
-  
+  consolidated = consolidate_cart(cart)
+  couponed = apply_coupons(consolidated)
+  clearanced = apply_clearance(couponed)
+  total_draft = clearanced.reduce(0) do |total, item|
+    item_cost = item[:price] * item[:count]
+    total = toal + item_cost
+    total 
+  end
+  if total_draft > 100
+    total = total_draft * 0.9
+  end
+  total.round(3)
 end
